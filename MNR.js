@@ -5,8 +5,8 @@ function initializeApp(){
 }
 
 function getInfo(){
-    var searchInputValue = $('#searchInput').val();
-    console.log(searchInputValue);
-    var movieSearch = new movieResult(searchInputValue);
+var searchInputValue = $('#searchInput').val();
+console.log(searchInputValue);
+var movieSearch = new movieResult(searchInputValue);
 
 }
