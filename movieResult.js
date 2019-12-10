@@ -1,7 +1,7 @@
 class movieResult{
     constructor(movieToSearch){
-        this.getMovieInfo(movieToSearch);
         $('.resultContainer').empty();
+        this.getMovieInfo(movieToSearch);
     }
 
         getMovieInfo(movieTitle){
@@ -12,18 +12,19 @@ class movieResult{
                 data: {
                     s: movieTitle
                 },
-                success: this.processOmdbResult,
+                success: this.processOmdbResponse,
                 error: this.processOmdbError
             };
             $.ajax(ajaxConfigObject)
         }
 
-        processOmdbResult(response){
+        processOmdbResponse(response){
             console.log(response);
             
             for(var i=0; i<response.Search.length; i++){
                 if(response.Search[i].Poster === 'N/A'){
                     var noPosterDiv = $('<div>').text(response.Search[i].Title).addClass('moviePoster');
+                    $('.resultContainer').append(noPosterDiv);
                 }else{
                     var posterDiv = $('<div>').css('background-image', 'url(' + response.Search[i].Poster + ')').addClass('moviePoster');
                     $('.resultContainer').append(posterDiv);

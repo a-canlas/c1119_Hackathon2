@@ -9,5 +9,4 @@ function getInfo(){
     console.log(searchInputValue);
     var movieSearch = new movieResult(searchInputValue);
 
-    
 }

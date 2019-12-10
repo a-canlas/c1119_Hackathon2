@@ -24,15 +24,34 @@
     background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 770px){
+    .titleDiv{
+        font-size: 7vh;
+        height: 11vh;
+    }
+    
+}
+
 @media screen and (max-width: 701px){
     .titleDiv{
         font-size: 5vh;
         height: 7vh;
     }
+    
+}
+
+@media screen and (max-width: 650px){
     .moviePoster{
         height: 55%;
         width: 45%;
         padding: 1%;
     }
+}
+
+    @media screen and (max-width: 310px){
+        .titleDiv{
+            font-size: 3vh;
+            height: 7vh;
+        }
 
 }
