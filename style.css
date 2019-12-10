@@ -1,3 +1,4 @@
+
 body {
   box-sizing: content-box;
 }
@@ -91,3 +92,62 @@ body {
 .moviePoster, .releaseAndTypeBox, .releaseDate, .movieType {
   width: 100%;
 }
+=======
+.titleDiv{
+    text-align: center;
+    height: 15vh;
+    font-size: 13vh;
+    padding-bottom: 3vh;
+}
+
+.searchDiv{
+    text-align: center;
+}
+
+.resultContainer{
+    height: 70vh;
+    padding-top: 3vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.moviePoster{
+    height: 45%;
+    width: 20%;
+    margin-bottom: 2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 770px){
+    .titleDiv{
+        font-size: 7vh;
+        height: 11vh;
+    }
+    
+}
+
+@media screen and (max-width: 701px){
+    .titleDiv{
+        font-size: 5vh;
+        height: 7vh;
+    }
+    
+}
+
+@media screen and (max-width: 650px){
+    .moviePoster{
+        height: 55%;
+        width: 45%;
+        padding: 1%;
+    }
+}
+
+    @media screen and (max-width: 310px){
+        .titleDiv{
+            font-size: 3vh;
+            height: 7vh;
+        }
+
+}
+
