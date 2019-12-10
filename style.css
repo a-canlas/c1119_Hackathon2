@@ -1,0 +1,93 @@
+body {
+  box-sizing: content-box;
+}
+
+.titleDiv {
+  height: 20vh;
+  background-color: burlywood;
+}
+
+.searchDiv {
+  height: 10vh;
+  background-color: antiquewhite;
+}
+
+.resultContainer {
+  height: 70vh;
+
+}
+
+#movieInfoModal {
+  position: fixed;
+  width: 40vh;
+  height: 60vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: antiquewhite;
+}
+
+.modalHeader {
+  background-color: burlywood;
+  height: 9%;
+}
+
+.title, .closeButton {
+  display: inline-block;
+}
+
+.closeButton {
+  float: right;
+}
+
+.modalBody{
+  width: 100%;
+  height: 89%;
+}
+
+.row1 {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  border: 2px solid red;
+}
+
+.newsBox {
+  height: 30%;
+  border: 2px solid blue;
+}
+
+.taco {
+  height: 9%;
+  border: 2px solid green;
+}
+
+.taco > img {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.posterRTBox {
+  border: 1px solid black;
+  width: 40%;
+}
+
+.reviewsBox {
+  border: 1px solid black;
+  width: 60%;
+}
+
+.moviePoster {
+  height: 79%;
+  background-image: url(./sampleposter.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.moviePoster, .releaseAndTypeBox, .releaseDate, .movieType {
+  width: 100%;
+}
