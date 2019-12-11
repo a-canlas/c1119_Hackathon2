@@ -19,7 +19,7 @@ class movieResult {
                 s: $('#searchInput').val()
             },
             success: this.processOmdbResponse,
-            error: console.log
+            error: this.processOmdbError
         };
         $.ajax(ajaxConfigObject)
     }
@@ -32,12 +32,6 @@ class movieResult {
             var moviePoster = response.Search[i].Poster;
             var makeMovieClass = new Movie(movieTitle, movieType, releaseYear, moviePoster, this.displayModal);
             console.log('make movie class', makeMovieClass)
-            // if (response.Search[i].Poster === 'N/A') {
-            //     var noPosterDiv = $('<div>').text(response.Search[i].Title).addClass('moviePoster');
-            //     $('.resultContainer').append(noPosterDiv);
-            // } else {
-            //     var posterDiv = $('<div>').css('background-image', 'url(' + response.Search[i].Poster + ')').addClass('moviePoster').attr({'title': response.Search[i].Title}).attr({'type': response.Search[i].Type}).attr({'year': response.Search[i].Year});
-            //     $('.resultContainer').append(posterDiv);
         }
     }
     
