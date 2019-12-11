@@ -1,7 +1,7 @@
 $(document).ready(initializeApp);
 
-function initializeApp () {
-  var articles = new nytArticles;
-  console.log(articles);
 
+function initializeApp(){
+    var getMovies = new movieResult();
+    getMovies.addEventHandler();
 }
