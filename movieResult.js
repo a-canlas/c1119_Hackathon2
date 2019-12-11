@@ -3,13 +3,14 @@ class movieResult {
 
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
+        this.displayModal = this.displayModal.bind(this);
         this.getMovieReviews = this.getMovieReviews.bind(this);
-
     }
 
     addEventHandler() {
         $('#searchButton').on('click', this.getMovieInfo);
         $('.modalCloseButton').on('click', this.closeModal);
+        $('.resetButton').on('click', this.resetInput);
     }
 
     getMovieInfo() {
@@ -27,6 +28,7 @@ class movieResult {
     }
 
     processOmdbResponse(response) {
+        console.log('error')
         $('.resultContainer').empty();
         for (var i = 0; i < response.Search.length; i++) {
             var movieTitle = response.Search[i].Title;
@@ -34,6 +36,9 @@ class movieResult {
             var releaseYear = response.Search[i].Year;
             var moviePoster = response.Search[i].Poster;
             var makeMovieClass = new Movie(movieTitle, movieType, releaseYear, moviePoster, this.displayModal);
+            var moviePosterParentDiv = makeMovieClass.renderMovie()
+            $('.resultContainer').append(moviePosterParentDiv)
+
         }
     }
 
@@ -81,6 +86,8 @@ class movieResult {
     }
 
     displayModal(){
+        //get reviews
+        //get articles
         $('#movieInfoModal').removeClass('hidden');
         // this.getMovieReviews();
     }
