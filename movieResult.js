@@ -3,8 +3,8 @@ class movieResult {
 
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
-
         this.displayModal = this.displayModal.bind(this);
+        this.getNewsInfo = this.getNewsInfo.bind(this);
     }
 
     addEventHandler() {
@@ -45,36 +45,37 @@ class movieResult {
         console.log(response);
     }
 
-    // getMovieReviews() {
-    //     var movieTitle = $('.modalTitle').text();
-    //     var ajaxDataConfig = {
-    //         url: 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movieTitle + '&api-key=0GPR4cqA3yzxnL9SWBBA34E40fAL1fC2',
-    //         method: 'GET',
-    //         success: this.onGetReviewsSuccess,
-    //         error: this.onGetReviewsError
-    //     }
-    //     $.ajax(ajaxDataConfig);
-    // }
+    getMovieReviews() {
+        var movieTitle = $('.modalTitle').text();
+        var ajaxDataConfig = {
+            url: 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movieTitle + '&api-key=0GPR4cqA3yzxnL9SWBBA34E40fAL1fC2',
+            method: 'GET',
+            success: this.onGetReviewsSuccess,
+            error: this.onGetReviewsError
+        }
+        $.ajax(ajaxDataConfig);
+    }
 
-    // onGetReviewsSuccess(response) {
-    //     if(response.results.length > 5){
-    //         for(var index = 0; index < 5; index++){
-    //             var urlLink = response.results[index].link.url;
-    //             var headlineText = response.results[index].headline;
-    //             var reviewItem = new Review(urlLink, headlineText);
-    //         }
-    //     } else {
-    //         for(var index = 0; index < response.results.length; index++){
-    //             var urlLink = response.results[index].link.url;
-    //             var headlineText = response.results[index].headline;
-    //             var reviewItem = new Review(urlLink, headlineText);
-    //         }
-    //     }
-    // }
+    onGetReviewsSuccess(response) {
+        $(".modalReviewBox").empty();
+        if(response.results.length > 5){
+            for(var index = 0; index < 5; index++){
+                var urlLink = response.results[index].link.url;
+                var headlineText = response.results[index].headline;
+                var reviewItem = new Review(urlLink, headlineText);
+            }
+        } else {
+            for(var index = 0; index < response.results.length; index++){
+                var urlLink = response.results[index].link.url;
+                var headlineText = response.results[index].headline;
+                var reviewItem = new Review(urlLink, headlineText);
+            }
+        }
+    }
 
-    // onGetReviewsError(error){
-    //     console.log('Error with Review GET: ', error);
-    // }
+    onGetReviewsError(error){
+        console.log('Error with Review GET: ', error);
+    }
 
     resetInput(){
         $('#searchInput').val("");
@@ -88,34 +89,43 @@ class movieResult {
         //get reviews
         //get articles
         $('#movieInfoModal').removeClass('hidden');
-        // this.getMovieReviews();
+        this.getMovieReviews();
+        this.getNewsInfo();
     }
 
-    // getNewsInfo() {
-    //     var ajaxConfigObject = {
-    //         dataType: 'json',
-    //         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs",
-    //         method: 'GET',
-    //         success: this.newsResponse,
-    //         error: this.newsResponseError
-    //     };
-    //     $.ajax(ajaxConfigObject)
-    // }
-
-    // newsResponse(response) {
-    //     if (response.response.length > 5) {
-    //         for (var index = 0; index < 5; index++) {
-    //             console.log(response.response.docs[index].web_url);
-    //             // var url = response.response.docs[index].web_url;
-    //         }
-    //     } else {
-    //         for (var index = 0; index < response.response.docs.length; index++) {
-    //             console.log(response.response.docs[index].web_url);
-    //             // var url = response.response.docs[index].web_url;
-    //         }
-    //     }
-    // }
-
-    // newsResponseError(response) {
-    //     console.log(response);
+    getNewsInfo() {
+        var movieTitle = $('.modalTitle').text();
+        var ajaxConfigObject = {
+            dataType: 'json',
+            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?query=" + movieTitle + "&api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs",
+            method: 'GET',
+            success: this.newsResponse,
+            error: this.newsResponseError
+        };
+        $.ajax(ajaxConfigObject)
     }
+
+    newsResponse(response) {
+        console.log(response)
+        $(".modalNewsBox").empty();
+        if (response.response.length > 5) {
+            for (var index = 0; index < 5; index++) {
+                var urlLink = response.response.docs[index].web_url;
+                var newsItem = new News(urlLink);
+                $('.modalNewsBox').append(newsItem.render());
+            }
+        } else {
+            for (var index = 0; index < response.response.docs.length; index++) {
+                var urlLink = response.response.docs[index].web_url;
+                var newsItem = new News(urlLink);
+
+                $('.modalNewsBox').append(newsItem.render());
+            }
+        }
+        console.log(urlLink);
+    }
+
+    newsResponseError(response) {
+        console.log(response);
+    }
+}
