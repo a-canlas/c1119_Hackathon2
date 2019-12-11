@@ -2,6 +2,7 @@
 .carouselSize {
   height: 1000px;
   width: 1000px;
+}
 
 body {
     box-sizing: content-box;

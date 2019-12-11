@@ -25,21 +25,20 @@ class movieResult {
     }
 
     processOmdbResponse(response) {
+        $('.resultContainer').empty();
         for (var i = 0; i < response.Search.length; i++) {
             var movieTitle = response.Search[i].Title;
             var movieType = response.Search[i].Type;
             var releaseYear = response.Search[i].Year;
             var moviePoster = response.Search[i].Poster;
             var makeMovieClass = new Movie(movieTitle, movieType, releaseYear, moviePoster, this.displayModal);
-            console.log('make movie class', makeMovieClass)
         }
     }
-    
-    
+
     processOmdbError(response) {
         console.log(response);
     }
-    
+
     resetInput(){
         $('#searchInput').val("");
     }
@@ -49,9 +48,6 @@ class movieResult {
     }
 
     displayModal(){
-        
         $('#movieInfoModal').removeClass('hidden');
-
-        
     }
 }
