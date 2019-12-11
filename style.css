@@ -1,0 +1,187 @@
+
+/* .carouselSize {
+    height: 1000px;
+    width: 1000px;
+} */
+
+body {
+    box-sizing: content-box;
+    background-image: url(./assets/film.jpg);
+}
+
+.titleDiv {
+    height: 20vh;
+    background-color: white;
+    filter: blur(1);
+}
+
+.searchDiv {
+    height: 10vh;
+
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+#searchInput {
+    text-align: left;
+    padding: 10px;
+    border-color: white;
+    border: 0;
+    border-radius: 3px;
+    background-color: darkred;
+    color: white;
+    box-shadow: 0px, 8px, 15px;
+}
+
+.noPoster{
+    background-image: url('./assets/JC.jpeg');
+    color: yellowgreen;
+    text-align: center;
+}
+
+.button {
+    padding: 10px;
+}
+
+.resultContainer {
+    height: 70vh;
+
+}
+
+#movieInfoModal {
+    position: fixed;
+    width: 40vh;
+    height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: antiquewhite;
+}
+
+.modalHeader {
+    background-color: burlywood;
+    height: 9%;
+}
+
+.modalTitle, .modalCloseButton {
+    display: inline-block;
+}
+
+.modalCloseButton {
+    float: right;
+}
+
+.modalBody{
+    width: 100%;
+    height: 89%;
+}
+
+.modalRow {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    border: 2px solid red;
+}
+
+.modalNewsBox {
+    height: 30%;
+    border: 2px solid blue;
+}
+
+.taco {
+    height: 9%;
+    border: 2px solid green;
+}
+
+.taco > img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.posterRTBox {
+    border: 1px solid black;
+    width: 40%;
+}
+
+.modalReviewsBox {
+    border: 1px solid black;
+    width: 60%;
+}
+
+.modalMoviePoster {
+    height: 79%;
+    /* background-image: url(./sampleposter.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.modalMoviePoster, .releaseAndTypeBox, .modalReaseDate, .modalMovieType {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.titleDiv{
+    text-align: center;
+    height: 15vh;
+    font-size: 13vh;
+    padding-bottom: 3vh;
+}
+
+.searchDiv{
+    text-align: center;
+}
+
+.resultContainer{
+    height: 70vh;
+    padding-top: 3vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.moviePoster{
+    height: 45%;
+    width: 16%;
+    margin: 2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1005px){
+    .titleDiv{
+        font-size: 7vh;
+        height: 11vh;
+    }
+
+}
+
+@media screen and (max-width: 701px){
+    .titleDiv{
+        font-size: 5vh;
+        height: 7vh;
+    }
+
+}
+
+@media screen and (max-width: 650px){
+    .moviePoster{
+        height: 50%;
+        width: 31%;
+    }
+}
+
+    @media screen and (max-width: 310px){
+        .titleDiv{
+            font-size: 3vh;
+            height: 7vh;
+        }
+
+}
