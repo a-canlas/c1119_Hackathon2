@@ -17,10 +17,15 @@ class Movie{
 
 
     renderMovie(){
-        $('.resultContainer').empty();
-        var posterDiv = $('<div>').css('background-image', 'url(' + this.data.poster + ')').addClass('moviePoster');
-        $('.resultContainer').append(posterDiv);
-        $('.resultContainer').on('click', '.moviePoster', this.handleShowModal);
+        if(this.data.poster === 'N/A'){
+            var noPosterDiv = $('<div>').text(this.data.title).addClass('moviePoster');
+            $('.resultContainer').append(noPosterDiv);
+            $('.resultContainer').on('click', '.moviePoster', this.handleShowModal);
+        }else{
+            var posterDiv = $('<div>').css('background-image', 'url(' + this.data.poster + ')').addClass('moviePoster');
+            $('.resultContainer').append(posterDiv);
+            $('.resultContainer').on('click', '.moviePoster', this.handleShowModal);
+        }
     }
 
     handleShowModal(){
