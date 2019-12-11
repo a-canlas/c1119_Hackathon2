@@ -58,7 +58,7 @@ class movieResult {
     }
 
     onGetReviewsSuccess(response) {
-        $(".modalReviewBox").empty();
+        $('.modalReviewsBox').empty();
         if(response.results.length > 5){
             for(var index = 0; index < 5; index++){
                 var urlLink = response.results[index].link.url;
@@ -93,7 +93,11 @@ class movieResult {
         $('#movieInfoModal').removeClass('hidden');
         this.getMovieReviews();
         this.getNewsInfo();
+        this.getTacos();
     }
+
+
+
 
     getNewsInfo() {
         var movieTitle = $('.modalTitle').text();
@@ -106,7 +110,6 @@ class movieResult {
         };
         $.ajax(ajaxConfigObject)
     }
-
     newsResponse(response) {
         console.log(response)
         $(".modalNewsBox").empty();
@@ -129,5 +132,10 @@ class movieResult {
 
     newsResponseError(response) {
         console.log(response);
+    }
+
+    getTacos(){
+        $('.taco').empty();
+        var randomTaco = new Taco('http://taco-randomizer.herokuapp.com/');
     }
 }
