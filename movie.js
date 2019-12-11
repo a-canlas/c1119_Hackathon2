@@ -27,7 +27,6 @@ class Movie{
 
     handleShowModal(){
         this.clearModal();
-        console.log(this.data.year)
         $('.modalReleaseDate').text(this.data.year);
         $('.modalMovieType').text(this.data.type);
         $('.modalTitle').text(this.data.title);

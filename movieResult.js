@@ -5,8 +5,6 @@ class movieResult {
         this.getMovieInfo = this.getMovieInfo.bind(this);
 
         this.displayModal = this.displayModal.bind(this);
-        this.getMovieReviews = this.getMovieReviews.bind(this);
-
     }
 
     addEventHandler() {
@@ -30,8 +28,6 @@ class movieResult {
     }
 
     processOmdbResponse(response) {
-        console.log('error')
-
         $('.resultContainer').empty();
         for (var i = 0; i < response.Search.length; i++) {
             var movieTitle = response.Search[i].Title;
