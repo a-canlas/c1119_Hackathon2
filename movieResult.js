@@ -35,6 +35,7 @@ class movieResult {
         }
     }
     
+    
     processOmdbError(response) {
         console.log(response);
     }
