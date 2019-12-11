@@ -1,10 +1,14 @@
-// class news {
-//   constructor() {
-//     this.getNewsInfo = this.getNewsInfo.bind(this);
-//     this.newsResponse = this.newsResponse.bind(this);
-//   }
+class News {
+  constructor(url) {
+    this.data = {
+      url: url
+    }
+  }
 
-
-// }
-
-// // $(".modalNewsBox").append()
+  render() {
+    var divElem = $('<div>');
+    var anchorElem = $('<a>').attr({ 'href': this.data.url, 'target': '_blank' }).text('news');
+    var renderFinish = divElem.append(anchorElem);
+    return renderFinish;
+  }
+}

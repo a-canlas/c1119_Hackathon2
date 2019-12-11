@@ -5,6 +5,7 @@ class movieResult {
         this.getMovieInfo = this.getMovieInfo.bind(this);
         this.getMovieReviews = this.getMovieReviews.bind(this);
         this.displayModal = this.displayModal.bind(this);
+        this.getNewsInfo = this.getNewsInfo.bind(this);
     }
 
     addEventHandler() {
@@ -57,9 +58,7 @@ class movieResult {
     }
 
     onGetReviewsSuccess(response) {
-
         $('.modalReviewsBox').empty();
-
         if(response.results.length > 5){
             for(var index = 0; index < 5; index++){
                 var urlLink = response.results[index].link.url;
@@ -93,42 +92,50 @@ class movieResult {
         //get articles
         $('#movieInfoModal').removeClass('hidden');
         this.getMovieReviews();
+        this.getNewsInfo();
         this.getTacos();
-
     }
 
-    // getNewsInfo() {
-    //     var ajaxConfigObject = {
-    //         dataType: 'json',
-    //         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs",
-    //         method: 'GET',
-    //         success: this.newsResponse,
-    //         error: this.newsResponseError
-    //     };
-    //     $.ajax(ajaxConfigObject)
-    // }
 
-    // newsResponse(response) {
-    //     if (response.response.length > 5) {
-    //         for (var index = 0; index < 5; index++) {
-    //             console.log(response.response.docs[index].web_url);
-    //             // var url = response.response.docs[index].web_url;
-    //         }
-    //     } else {
-    //         for (var index = 0; index < response.response.docs.length; index++) {
-    //             console.log(response.response.docs[index].web_url);
-    //             // var url = response.response.docs[index].web_url;
-    //         }
-    //     }
-    // }
 
-    // newsResponseError(response) {
-    //     console.log(response);
-    // }
+
+    getNewsInfo() {
+        var movieTitle = $('.modalTitle').text();
+        var ajaxConfigObject = {
+            dataType: 'json',
+            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?query=" + movieTitle + "&api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs",
+            method: 'GET',
+            success: this.newsResponse,
+            error: this.newsResponseError
+        };
+        $.ajax(ajaxConfigObject)
+    }
+    newsResponse(response) {
+        console.log(response)
+        $(".modalNewsBox").empty();
+        if (response.response.length > 5) {
+            for (var index = 0; index < 5; index++) {
+                var urlLink = response.response.docs[index].web_url;
+                var newsItem = new News(urlLink);
+                $('.modalNewsBox').append(newsItem.render());
+            }
+        } else {
+            for (var index = 0; index < response.response.docs.length; index++) {
+                var urlLink = response.response.docs[index].web_url;
+                var newsItem = new News(urlLink);
+
+                $('.modalNewsBox').append(newsItem.render());
+            }
+        }
+        console.log(urlLink);
+    }
+
+    newsResponseError(response) {
+        console.log(response);
+    }
 
     getTacos(){
         $('.taco').empty();
         var randomTaco = new Taco('http://taco-randomizer.herokuapp.com/');
     }
-
 }
