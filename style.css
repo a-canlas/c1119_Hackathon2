@@ -1,21 +1,42 @@
 
-.carouselSize {
-  height: 1000px;
-  width: 1000px;
-}
+/* .carouselSize {
+    height: 1000px;
+    width: 1000px;
+} */
 
 body {
     box-sizing: content-box;
+    background-image: url(../c1119_Hackathon2/film.jpg);
 }
 
 .titleDiv {
     height: 20vh;
-    background-color: burlywood;
+    background-color: white;
+    filter: blur(1);
 }
 
 .searchDiv {
     height: 10vh;
-    background-color: antiquewhite;
+
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+#searchInput {
+    text-align: left;
+    padding: 10px;
+    border-color: white;
+    border: 0;
+    border-radius: 3px;
+    background-color: darkred;
+    color: white;
+    box-shadow: 0px, 8px, 15px;
+}
+
+#searchButton {
+    padding: 10px;
 }
 
 .resultContainer {
