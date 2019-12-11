@@ -3,7 +3,7 @@ class movieResult {
 
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
-
+        this.getMovieReviews = this.getMovieReviews.bind(this);
         this.displayModal = this.displayModal.bind(this);
     }
 
@@ -45,39 +45,40 @@ class movieResult {
         console.log(response);
     }
 
-    // getMovieReviews() {
-    //     var movieTitle = $('.modalTitle').text();
-    //     var ajaxDataConfig = {
-    //         url: 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movieTitle + '&api-key=0GPR4cqA3yzxnL9SWBBA34E40fAL1fC2',
-    //         method: 'GET',
-    //         success: this.onGetReviewsSuccess,
-    //         error: this.onGetReviewsError
-    //     }
-    //     $.ajax(ajaxDataConfig);
-    // }
+    getMovieReviews() {
+        var movieTitle = $('.modalTitle').text();
+        var ajaxDataConfig = {
+            url: 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movieTitle + '&api-key=0GPR4cqA3yzxnL9SWBBA34E40fAL1fC2',
+            method: 'GET',
+            success: this.onGetReviewsSuccess,
+            error: this.onGetReviewsError
+        }
+        $.ajax(ajaxDataConfig);
+    }
 
-    // onGetReviewsSuccess(response) {
-    //     if(response.results.length > 5){
-    //         for(var index = 0; index < 5; index++){
-    //             var urlLink = response.results[index].link.url;
-    //             var headlineText = response.results[index].headline;
-    //             var reviewItem = new Review(urlLink, headlineText);
-    //         }
-    //     } else {
-    //         for(var index = 0; index < response.results.length; index++){
-    //             var urlLink = response.results[index].link.url;
-    //             var headlineText = response.results[index].headline;
-    //             var reviewItem = new Review(urlLink, headlineText);
-    //         }
-    //     }
-    // }
+    onGetReviewsSuccess(response) {
+        if(response.results.length > 5){
+            for(var index = 0; index < 5; index++){
+                var urlLink = response.results[index].link.url;
+                var headlineText = response.results[index].headline;
+                var reviewItem = new Review(urlLink, headlineText);
+            }
+        } else {
+            for(var index = 0; index < response.results.length; index++){
+                var urlLink = response.results[index].link.url;
+                var headlineText = response.results[index].headline;
+                var reviewItem = new Review(urlLink, headlineText);
+            }
+        }
+    }
 
-    // onGetReviewsError(error){
-    //     console.log('Error with Review GET: ', error);
-    // }
+    onGetReviewsError(error){
+        console.log('Error with Review GET: ', error);
+    }
 
     resetInput(){
         $('#searchInput').val("");
+        $('.resultContainer').empty();
     }
 
     closeModal(){
@@ -88,7 +89,8 @@ class movieResult {
         //get reviews
         //get articles
         $('#movieInfoModal').removeClass('hidden');
-        // this.getMovieReviews();
+        this.getMovieReviews();
+
     }
 
     // getNewsInfo() {
