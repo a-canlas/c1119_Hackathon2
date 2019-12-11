@@ -1,5 +1,6 @@
 $(document).ready(initializeApp);
 
+
 function initializeApp(){
     var getMovies = new movieResult();
     getMovies.addEventHandler();
@@ -25,3 +26,4 @@ function initializeApp(){
 // function handleCloseModal(){
 //     $('#movieInfoModal').addClass('hidden');
 // }
+
