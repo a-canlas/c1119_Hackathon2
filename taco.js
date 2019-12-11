@@ -8,7 +8,7 @@ class Taco {
 
   render(){
     var anchorTag = $('<a>').attr({'href': this.data.url, 'target': '_blank'});
-    var imageTag = $('<img>').attr({'src': './taco.jpg', 'height': '30px'});
+    var imageTag = $('<img>').attr({'src': './assets/taco.jpg', 'height': '30px'});
     anchorTag.append(imageTag);
     $('.taco').append(anchorTag);
   }
