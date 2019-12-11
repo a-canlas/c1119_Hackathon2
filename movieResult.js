@@ -3,6 +3,7 @@ class movieResult {
 
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
+        this.getMovieReviews = this.getMovieReviews.bind(this);
         this.displayModal = this.displayModal.bind(this);
         this.getNewsInfo = this.getNewsInfo.bind(this);
     }
@@ -79,6 +80,7 @@ class movieResult {
 
     resetInput(){
         $('#searchInput').val("");
+        $('.resultContainer').empty();
     }
 
     closeModal(){
