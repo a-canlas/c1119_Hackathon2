@@ -18,7 +18,7 @@ class Movie{
     renderMovie(){
         var posterDiv;
         if(this.data.poster === 'N/A'){
-            posterDiv = $('<div>').text(this.data.title).addClass('moviePoster').on('click', this.handleShowModal);
+            posterDiv = $('<div>').text(this.data.title).addClass('moviePoster noPoster').on('click', this.handleShowModal);
         }else{
             posterDiv = $('<div>').css('background-image', 'url(' + this.data.poster + ')').addClass('moviePoster').on('click', this.handleShowModal);;
         }

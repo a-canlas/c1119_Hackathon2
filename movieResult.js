@@ -3,7 +3,7 @@ class movieResult {
 
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
-
+        this.getMovieReviews = this.getMovieReviews.bind(this);
         this.displayModal = this.displayModal.bind(this);
     }
 
@@ -57,7 +57,9 @@ class movieResult {
     }
 
     onGetReviewsSuccess(response) {
+
         $('.modalReviewsBox').empty();
+
         if(response.results.length > 5){
             for(var index = 0; index < 5; index++){
                 var urlLink = response.results[index].link.url;
@@ -79,6 +81,7 @@ class movieResult {
 
     resetInput(){
         $('#searchInput').val("");
+        $('.resultContainer').empty();
     }
 
     closeModal(){
@@ -91,6 +94,7 @@ class movieResult {
         $('#movieInfoModal').removeClass('hidden');
         this.getMovieReviews();
         this.getTacos();
+
     }
 
     // getNewsInfo() {

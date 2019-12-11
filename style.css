@@ -6,7 +6,7 @@
 
 body {
     box-sizing: content-box;
-    background-image: url(../c1119_Hackathon2/film.jpg);
+    background-image: url(./assets/film.jpg);
 }
 
 .titleDiv {
@@ -35,7 +35,13 @@ body {
     box-shadow: 0px, 8px, 15px;
 }
 
-#searchButton {
+.noPoster{
+    background-image: url('./assets/JC.jpeg');
+    color: yellowgreen;
+    text-align: center;
+}
+
+.button {
     padding: 10px;
 }
 
@@ -109,7 +115,7 @@ body {
 
 .modalMoviePoster {
     height: 79%;
-    background-image: url(./sampleposter.jpg);
+    /* background-image: url(./sampleposter.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -143,8 +149,8 @@ body {
 
 .moviePoster{
     height: 45%;
-    width: 20%;
-    margin-bottom: 2%;
+    width: 16%;
+    margin: 2%;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -167,9 +173,8 @@ body {
 
 @media screen and (max-width: 650px){
     .moviePoster{
-        height: 55%;
-        width: 45%;
-        padding: 1%;
+        height: 50%;
+        width: 31%;
     }
 }
 
