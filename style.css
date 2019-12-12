@@ -168,9 +168,9 @@ body {
     }
 }
 
-    @media screen and (max-width: 310px) {
-        .titleDiv{
-            font-size: 3vh;
-            height: 7vh;
-        }
+@media screen and (max-width: 310px){
+    .titleDiv{
+        font-size: 3vh;
+        height: 7vh;
+    }
 }

@@ -16,7 +16,7 @@ class MovieResult {
     getMovieInfo() {
         var ajaxConfigObject = {
             dataType: 'json',
-            url: "http://www.omdbapi.com/?i=tt3896198&apikey=6c2d937e",
+            url: 'http://www.omdbapi.com/?i=tt3896198&apikey=6c2d937e',
             method: 'GET',
             data: {
                 s: $('#searchInput').val()
@@ -57,18 +57,11 @@ class MovieResult {
 
     onGetReviewsSuccess(response) {
         $('.modalReviewsBox').empty();
-        if(response.results.length > 5){
-            for(var index = 0; index < 5; index++){
-                var urlLink = response.results[index].link.url;
-                var headlineText = response.results[index].headline;
-                var reviewItem = new Review(urlLink, headlineText);
-            }
-        } else {
-            for(var index = 0; index < response.results.length; index++){
-                var urlLink = response.results[index].link.url;
-                var headlineText = response.results[index].headline;
-                var reviewItem = new Review(urlLink, headlineText);
-            }
+        response.results.slice(0, 5);
+        for(var index = 0; index < response.results.length; index++){
+            var urlLink = response.results[index].link.url;
+            var headlineText = response.results[index].headline;
+            new Review(urlLink, headlineText);
         }
     }
 
@@ -86,8 +79,6 @@ class MovieResult {
     }
 
     displayModal(){
-        //get reviews
-        //get articles
         $('#movieInfoModal').removeClass('hidden');
         this.getMovieReviews();
         this.getNewsInfo();
@@ -98,7 +89,7 @@ class MovieResult {
         var movieTitle = $('.modalTitle').text();
         var ajaxConfigObject = {
             dataType: 'json',
-            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?query=" + movieTitle + "&api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs",
+            url: 'https://api.nytimes.com/svc/search/v2/articlesearch.json?query=' + movieTitle + '&api-key=CL81LUbZFCEpOlFyAH0ejmIgf9l93Sqs',
             method: 'GET',
             success: this.newsResponse,
             error: this.newsResponseError
@@ -108,7 +99,7 @@ class MovieResult {
 
     newsResponse(response) {
         console.log(response)
-        $(".modalNewsBox").empty();
+        $('.modalNewsBox').empty();
         if (response.response.length > 5) {
             for (var index = 0; index < 5; index++) {
                 var urlLink = response.response.docs[index].web_url;
@@ -131,6 +122,6 @@ class MovieResult {
 
     getTacos(){
         $('.taco').empty();
-        var randomTaco = new Taco('http://taco-randomizer.herokuapp.com/');
+        new Taco('http://taco-randomizer.herokuapp.com/');
     }
 }
