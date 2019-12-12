@@ -5,40 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
     <script src="movieResult.js"></script>
     <script src="movie.js"></script>
-    <script src="NY.js"></script>
     <script src="news.js"></script>
     <script src="nyTimesReview.js"></script>
     <script src="taco.js"></script>
-
-
     <title>Movie News & Reviews</title>
 </head>
 
 <body>
     <div class="titleDiv ">Movie News & Reviews</div>
+    
     <div class="searchDiv ">
         <input type="text" id="searchInput" class="searchInput" placeholder="Search for a movie here">
         <button id="searchButton" class="searchButton button">Search</button>
         <button class="resetButton button">Reset</button>
     </div>
-    <div class="resultContainer"></div>
 
+    <div class="resultContainer"></div>
 
     <div id="movieInfoModal" class="hidden">
         <div class="modalHeader">
-            <div class="modalTitle">XYZ Movie</div>
+            <div class="modalTitle"></div>
             <div class="modalCloseButton">&times;</div>
         </div>
         <div class="modalBody">
@@ -46,22 +39,16 @@
                 <div class="posterRTBox">
                     <div class="modalMoviePoster"></div>
                     <div class="releaseAndTypeBox">
-                        <div class="modalReleaseDate">1992</div>
-                        <div class="modalMovieType">Film</div>
+                        <div class="modalReleaseDate"></div>
+                        <div class="modalMovieType"></div>
                     </div>
                 </div>
-                <div class="modalReviewsBox">Reviews</div>
+                <div class="modalReviewsBox"></div>
             </div>
-
-            <div class="modalNewsBox">XYZ Movie makes box office bank. Fafafafafafaf
+            <div class="modalNewsBox">
             </div>
-
-
             <div class="taco"></div>
-
-
         </div>
-
     </div>
 
 </body>

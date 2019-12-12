@@ -13,5 +13,4 @@ class Review {
     divElem.append(anchorElem);
     $('.modalReviewsBox').append(divElem);
   }
-
 }

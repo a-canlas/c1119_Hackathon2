@@ -1,6 +1,5 @@
-class movieResult {
+class MovieResult {
     constructor() {
-
         this.processOmdbResponse = this.processOmdbResponse.bind(this);
         this.getMovieInfo = this.getMovieInfo.bind(this);
         this.getMovieReviews = this.getMovieReviews.bind(this);
@@ -38,7 +37,6 @@ class movieResult {
             var makeMovieClass = new Movie(movieTitle, movieType, releaseYear, moviePoster, this.displayModal);
             var moviePosterParentDiv = makeMovieClass.renderMovie()
             $('.resultContainer').append(moviePosterParentDiv)
-
         }
     }
 
@@ -96,9 +94,6 @@ class movieResult {
         this.getTacos();
     }
 
-
-
-
     getNewsInfo() {
         var movieTitle = $('.modalTitle').text();
         var ajaxConfigObject = {
@@ -110,6 +105,7 @@ class movieResult {
         };
         $.ajax(ajaxConfigObject)
     }
+
     newsResponse(response) {
         console.log(response)
         $(".modalNewsBox").empty();
@@ -123,7 +119,6 @@ class movieResult {
             for (var index = 0; index < response.response.docs.length; index++) {
                 var urlLink = response.response.docs[index].web_url;
                 var newsItem = new News(urlLink);
-
                 $('.modalNewsBox').append(newsItem.render());
             }
         }

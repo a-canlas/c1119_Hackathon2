@@ -1,9 +1,3 @@
-
-/* .carouselSize {
-    height: 1000px;
-    width: 1000px;
-} */
-
 body {
     box-sizing: content-box;
     background-image: url(./assets/film.jpg);
@@ -17,11 +11,11 @@ body {
 
 .searchDiv {
     height: 10vh;
-
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+::placeholder {
     color: white;
-    opacity: 1; /* Firefox */
+    opacity: 1;
 }
 
 #searchInput {
@@ -35,7 +29,7 @@ body {
     box-shadow: 0px, 8px, 15px;
 }
 
-.noPoster{
+.noPoster {
     background-image: url('./assets/JC.jpeg');
     color: yellowgreen;
     text-align: center;
@@ -47,7 +41,6 @@ body {
 
 .resultContainer {
     height: 70vh;
-
 }
 
 #movieInfoModal {
@@ -73,7 +66,7 @@ body {
     float: right;
 }
 
-.modalBody{
+.modalBody {
     width: 100%;
     height: 89%;
 }
@@ -83,7 +76,6 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-
     border: 2px solid red;
 }
 
@@ -115,7 +107,6 @@ body {
 
 .modalMoviePoster {
     height: 79%;
-    /* background-image: url(./sampleposter.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -129,59 +120,57 @@ body {
     display: none;
 }
 
-.titleDiv{
+.titleDiv {
     text-align: center;
     height: 15vh;
     font-size: 13vh;
     padding-bottom: 3vh;
 }
 
-.searchDiv{
+.searchDiv {
     text-align: center;
 }
 
-.resultContainer{
+.resultContainer {
     height: 70vh;
     padding-top: 3vh;
     display: flex;
     flex-wrap: wrap;
 }
 
-.moviePoster{
+.moviePoster {
     height: 45%;
     width: 16%;
     margin: 2%;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
-@media screen and (max-width: 1005px){
+@media screen and (max-width: 1005px) {
     .titleDiv{
         font-size: 7vh;
         height: 11vh;
     }
-
 }
 
-@media screen and (max-width: 701px){
+@media screen and (max-width: 701px) {
     .titleDiv{
         font-size: 5vh;
         height: 7vh;
     }
-
 }
 
-@media screen and (max-width: 650px){
+@media screen and (max-width: 650px) {
     .moviePoster{
         height: 50%;
         width: 31%;
     }
 }
 
-    @media screen and (max-width: 310px){
+    @media screen and (max-width: 310px) {
         .titleDiv{
             font-size: 3vh;
             height: 7vh;
         }
-
 }
