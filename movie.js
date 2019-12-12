@@ -14,27 +14,23 @@ class Movie{
         this.modalPoster = $('.modalMoviePoster')
     }
 
-
     renderMovie(){
-        var posterDiv;
+        var posterDiv = $('<div>').addClass('moviePoster').on('click', this.handleShowModal);
         if(this.data.poster === 'N/A'){
-            posterDiv = $('<div>').text(this.data.title).addClass('moviePoster noPoster').on('click', this.handleShowModal);
+            posterDiv = posterDiv.text(this.data.title).addClass('noPoster');
         }else{
-            posterDiv = $('<div>').css('background-image', 'url(' + this.data.poster + ')').addClass('moviePoster').on('click', this.handleShowModal);;
+            posterDiv = posterDiv.css('background-image', 'url(' + this.data.poster + ')');;
         }
         return posterDiv;
     }
 
     handleShowModal(){
         this.clearModal();
-        $('.modalReleaseDate').text(this.data.year);
-        $('.modalMovieType').text(this.data.type);
-        $('.modalTitle').text(this.data.title);
-        $('.modalMoviePoster').css('background-image', 'url(' + this.data.poster + ')');
-
+        this.modalYear.text(this.data.year);
+        this.modalType.text(this.data.type);
+        this.modalTitle.text(this.data.title);
+        this.modalPoster.css('background-image', 'url(' + this.data.poster + ')');
         this.showModal(this.data);
-        //instantiate article class
-        //instantiate reviews class
     }
 
     clearModal(){
@@ -43,6 +39,4 @@ class Movie{
         this.modalType.text("");
         this.modalPoster.attr('background-image', 'url()');
     }
-
-
 }
