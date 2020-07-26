@@ -23,8 +23,8 @@ class MovieResult {
             },
             success: this.processOmdbResponse,
             error: this.processOmdbError
-        };
-        $.ajax(ajaxConfigObject)
+        }
+        $.ajax(ajaxConfigObject);
     }
 
     processOmdbResponse(response) {
@@ -82,7 +82,6 @@ class MovieResult {
         $('#movieInfoModal').removeClass('hidden');
         this.getMovieReviews();
         this.getNewsInfo();
-        this.getTacos();
     }
 
     getNewsInfo() {
@@ -118,10 +117,5 @@ class MovieResult {
 
     newsResponseError(response) {
         console.log(response);
-    }
-
-    getTacos(){
-        $('.taco').empty();
-        new Taco('http://taco-randomizer.herokuapp.com/');
     }
 }

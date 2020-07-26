@@ -84,17 +84,6 @@ body {
     border: 2px solid blue;
 }
 
-.taco {
-    height: 9%;
-    border: 2px solid green;
-}
-
-.taco > img {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-}
-
 .posterRTBox {
     border: 1px solid black;
     width: 40%;
